@@ -101,6 +101,7 @@
   overflow: auto;
   height: 100vh;
   text-align: center;
+  position: relative;
 
   .fight-btn{
     font-family: 'Bangers', cursive;
@@ -197,9 +198,81 @@
 /* PLAYERS ============================================================*/
 
 
-#battle-screen .playerVsCpuArena{
-  display: block;
-  border: border-box;
+#battle-screen{
+  .fight-btn{
+
+  }
+  .battle-btns{
+    .rock{
+      img{
+
+      }
+    }
+    .paper{
+      img{
+
+      }
+    }
+    .scissors{
+      img{
+
+      }
+    }
+  }
+  .playerVsCpuArena{
+    display: block;
+    border: border-box;
+    .player{
+      .player1{
+        .stats{
+          .name{
+
+          }
+          .level{
+
+          }
+          .health{
+            .title{
+
+            }
+            .health-bar{
+              .inside{
+
+              }
+            }
+          }
+          img{
+
+          }
+        }
+      }
+    }
+    .cpu{
+      .player2{
+        .stats{
+          .name{
+
+          }
+          .level{
+
+          }
+          .health{
+            .title{
+
+            }
+            .health-bar{
+              .inside{
+
+              }
+            }
+          }
+          img{
+            
+          }
+        }
+      }
+    }
+  }
 }
 
 #battle-screen .player{

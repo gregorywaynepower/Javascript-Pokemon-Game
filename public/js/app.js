@@ -1,20 +1,31 @@
 var gameState = {
-  pokemon: ''
+  userPokemon: '',
+  rivalPokemon: ''
 }
 
 var pokemonsEl = document.querySelector('.select-screen').querySelectorAll('.character');
 console.log(pokemonsEl);
-
 var i = 0;
 
 while (i < pokemonsEl.length ) {
   pokemonsEl[i].onclick = function() {
     var pokemonName = this.dataset.pokemon
     // console.log(pokemonName + ', I choose you!')
-    gameState.pokemon = pokemonName
+    gameState.userPokemon = pokemonName
+    cpuPick()
+    console.log(gameState)
   }
   i++
 }
+
+function randomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function cpuPick() {
+  gameState.rivalPokemon = pokemonsEl[randomNumber(0, 3)].dataset.pokemon
+}
+
 
 
 
