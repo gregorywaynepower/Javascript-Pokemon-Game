@@ -89,6 +89,7 @@
 }
 
 /* BATTLE SCREEN ============================================================*/
+
 #battle-screen{
   background: url(//i.imgur.com/UZKEjzG.png) no-repeat center center; 
   -webkit-background-size: 100% 100%;
@@ -190,33 +191,6 @@
       }
     }
   }
-}
-
-
-/* PLAYERS ============================================================*/
-
-
-#battle-screen{
-  .fight-btn{
-
-  }
-  .battle-btns{
-    .rock{
-      img{
-
-      }
-    }
-    .paper{
-      img{
-
-      }
-    }
-    .scissors{
-      img{
-
-      }
-    }
-  }
   .playerVsCpuArena{
     display: block;
     border: border-box;
@@ -288,146 +262,79 @@
             }
           }
           img{
-
+            height: 200px;
           }
         }
       }
     }
     .cpu{
+      position: absolute;
+      bottom: 10%;
+      right: 20%;
       .player2{
+        position: relative;
         .stats{
+          position: absolute;
+          background: #F8F8D8;
+          top:-140px;
+          left: -70px;
+          height: 100px;
+          width: 300px;
+          border-radius: 5px;
+          border: 5px solid #506858;
+          padding: 15px;
           .name{
-
+            font-family: 'Press Start 2P', cursive;
+            font-size: 16px;
           }
           .level{
-
+            font-family: 'Press Start 2P', cursive;
+            font-size: 16px;
+            float: right;
           }
           .health{
+            font-family: 'Press Start 2P', cursive;
+            font-size: 16px;
+            background: #506858;
+            border-radius: 5px;
+            padding: 5px;
+            color: #F8AE3E;
+            overflow: auto;
+            margin: 10px 0 0;
             .title{
-
+              width: 25%;
+              display: inline-block;
+              float: left;
             }
             .health-bar{
+              background: #10120C;
+              border-radius: 5px;
+              width: 75%;
+              display: inline-block;
+              height: 16px;
+              float: left;
+              font-family: 'Press Start 2P', cursive;
+              font-size: 16px;
               .inside{
-
+                background: #70F8A8;
+                border-radius: 5px;
+                display: inline-block;
+                height: 16px;
+                float: left;
+                transition: all .5s ease-in-out;
               }
             }
           }
-          img{
-            
-          }
         }
+      }
+      img{
+        height: 200px;
       }
     }
   }
 }
 
-#battle-screen .player{
-  
-}
-
-#battle-screen .player img{
-  
-}
-/* player 1 ============================================================*/
-#battle-screen .player .player1{
-  
-}
-#battle-screen .player .player1 .stats{
-  
-}
-#battle-screen .player .player1 .stats .name{
-  
-}
-#battle-screen .player .player1 .stats .level{
-  
-}
-#battle-screen .player .player1 .stats .health{
-  
-}
-#battle-screen .player .player1 .stats .health .title{
-  
-}
-#battle-screen .player .player1 .stats .health .health-bar{
-  
-}
-#battle-screen .player .player1 .stats .health .health-bar .inside{
-  
-}
-#battle-screen .player .player1 .stats .health .health-bar{
-  
-}
-
-
 /* CPU ============================================================*/
-#battle-screen .cpu{
-  position: absolute;
-  bottom: 10%;
-  right: 20%;
-}
-
-#battle-screen .cpu .player2{
-  position: relative;
-}
-#battle-screen .cpu .player2 .stats{
-  position: absolute;
-  background: #F8F8D8;
-  top:-140px;
-  left: -70px;
-  height: 100px;
-  width: 300px;
-  border-radius: 5px;
-  border: 5px solid #506858;
-  padding: 15px;
-}
-#battle-screen .cpu .player2 .stats .name{
-  font-family: 'Press Start 2P', cursive;
-  font-size: 16px;
-}
-#battle-screen .cpu .player2 .stats .level{
-  font-family: 'Press Start 2P', cursive;
-  font-size: 16px;
-  float: right;
-}
-#battle-screen .cpu .player2 .stats .health{
-  font-family: 'Press Start 2P', cursive;
-  font-size: 16px;
-  background: #506858;
-  border-radius: 5px;
-  padding: 5px;
-  color: #F8AE3E;
-  overflow: auto;
-  margin: 10px 0 0;
-}
-#battle-screen .cpu .player2 .stats .health .title{
-  width: 25%;
-  display: inline-block;
-  float: left;
-}
-#battle-screen .cpu .player2 .stats .health .health-bar{
-  background: #10120C;
-  border-radius: 5px;
-  width: 75%;
-  display: inline-block;
-  height: 16px;
-  float: left;
-}
-#battle-screen .cpu .player2 .stats .health .health-bar .inside{
-  background: #70F8A8;
-  border-radius: 5px;
-  
-  display: inline-block;
-  height: 16px;
-  float: left;
-  transition: all .5s ease-in-out;
-}
-#battle-screen .cpu .player1 .stats .health .health-bar{
-  font-family: 'Press Start 2P', cursive;
-  font-size: 16px;
-}
-
-#battle-screen .cpu img{
-  height: 200px;
-}
 
 //Breakpoints Researched from Bulma.io (https://bulma.io/documentation/overview/responsiveness/)
 
