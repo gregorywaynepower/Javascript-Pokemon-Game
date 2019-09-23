@@ -58,12 +58,16 @@ while (i < pokemonsEl.length ) {
       return pokemon.name == gameState.userPokemon
     });
 
+    // From the inside to to the outside: the string at "pokemon.name" is returned if it is equal to the string at "gameState.userPokemon". The returned string at "pokemon.name" via filter(), so a new array is created inside pokemonsDB. This value will be assigned as currentPokemon.
+
     var currentRivalPokemon = pokemonsDB.filter(function(pokemon){
       return pokemon.name == gameState.rivalPokemon
     });
 
     player1Img[0].src = currentPokemon[0].img;
     player2Img[0].src = currentRivalPokemon[0].img;
+
+    // Changes values of images.
 
     console.log(currentPokemon);
   }
