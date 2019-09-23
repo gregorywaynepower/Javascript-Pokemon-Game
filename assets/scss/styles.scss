@@ -12,6 +12,11 @@
 *{
   box-sizing: border-box;
 }
+body{
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
 /* SELECT SCREEN ============================================================*/
 .header{
   background: #0a0618; /* Old browsers */
@@ -75,6 +80,8 @@
       border: 3px solid #000;
       float: left;
       margin: 0 25px;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
       &.charmander{
         background: #FA7A47;
       }
@@ -83,6 +90,11 @@
       }
       &.squirtle{
         background: #64B2FA;
+      }
+      &:hover{
+        background: rgb(171,168,58);
+        background: radial-gradient(circle, rgba(171,168,58,0.01) 31%, rgba(224,249,2,1) 88%);
+        transition: all 0.5s ease-in-out;
       }
     }
   }
@@ -102,7 +114,12 @@
   height: 100vh;
   text-align: center;
   position: relative;
-
+  transition: all 0.5s ease-in-out;
+  top: 0vh;
+  &.active{
+    top:-100vh;
+    transition: all 0.5s ease-in-out;
+  }
   .fight-btn{
     font-family: 'Bangers', cursive;
     text-transform: capitalize;
@@ -333,8 +350,6 @@
     }
   }
 }
-
-/* CPU ============================================================*/
 
 //Breakpoints Researched from Bulma.io (https://bulma.io/documentation/overview/responsiveness/)
 

@@ -5,15 +5,17 @@ var gameState = {
 
 var pokemonsEl = document.querySelector('.select-screen').querySelectorAll('.character');
 console.log(pokemonsEl);
+var battleScreenEl = document.getElementById('battle-screen');
 var i = 0;
 
 while (i < pokemonsEl.length ) {
   pokemonsEl[i].onclick = function() {
-    var pokemonName = this.dataset.pokemon
+    var pokemonName = this.dataset.pokemon;
     // console.log(pokemonName + ', I choose you!')
-    gameState.userPokemon = pokemonName
-    cpuPick()
-    console.log(gameState)
+    gameState.userPokemon = pokemonName;
+    cpuPick();
+    battleScreenEl.classList.toggle('active');
+    console.log(gameState);
   }
   i++
 }
