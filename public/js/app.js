@@ -1,9 +1,9 @@
 
 // pokemon
 // create data for 3 different pokemons, with their names, type, weaknesses, health, and attack moves(name, attack stat, maximum)
-var pokemonsDatabase = [
+var pokemonsDB = [
     {
-      name: 'charmander',
+      name: 'Charmander',
       type: 'fire',
       hp: 39,
       attack: 52,
@@ -12,7 +12,7 @@ var pokemonsDatabase = [
       img: "http://www.smogon.com/dex/media/sprites/xy/charmander.gif"
     },
     {
-      name: 'bulbasaur',
+      name: 'Bulbasaur',
       type: 'grass',
       hp: 45,
       attack: 49,
@@ -21,7 +21,7 @@ var pokemonsDatabase = [
       img: "http://www.smogon.com/dex/media/sprites/xy/bulbasaur.gif"
     },
     {
-      name: 'squirtle',
+      name: 'Squirtle',
       type: 'water',
       hp: 44,
       attack: 48,
@@ -45,11 +45,27 @@ while (i < pokemonsEl.length ) {
   pokemonsEl[i].onclick = function() {
     var pokemonName = this.dataset.pokemon;
     // console.log(pokemonName + ', I choose you!')
+    var player1Img = document.querySelector('.player1').getElementsByTagName('img')
+    // Above variable lets us select the img inside the element with the class name "player1". Which will be useful later.
+    var player2Img = document.querySelector('.player2').getElementsByTagName('img');
+
     gameState.userPokemon = pokemonName;
     cpuPick();
+
     battleScreenEl.classList.toggle('active');
     
-    console.log(gameState);
+    var currentPokemon = pokemonsDB.filter(function(pokemon){
+      return pokemon.name == gameState.userPokemon
+    });
+
+    var currentRivalPokemon = pokemonsDB.filter(function(pokemon){
+      return pokemon.name == gameState.rivalPokemon
+    });
+
+    player1Img[0].src = currentPokemon[0].img;
+    player2Img[0].src = currentRivalPokemon[0].img;
+
+    console.log(currentPokemon);
   }
   i++
 }
