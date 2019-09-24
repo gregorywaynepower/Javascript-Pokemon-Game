@@ -50,16 +50,20 @@ console.log(pokemonsEl);
 
 var battleScreenEl = document.getElementById('battle-screen');
 
+// The "var i = 0;" is our "integer", it functions as a counter that lets us iterate through
+
 var i = 0;
 
-// Our first loop.
+// Our first loop, that runs on however many elements are within the var "pokemonsEl" (which is an array of HTML elements).
 
 while (i < pokemonsEl.length ) {
 
-  // Adds a function that is activated when we click on any of the elements.
+  // Adds a function that is activated when we click on any of the elements that are represented by pokemonsEl.
 
   pokemonsEl[i].onclick = function() {
+
     // var pokemonName is assigned the pokemon's name from a value within the HTML attribute "data-pokemon".
+    
     var pokemonName = this.dataset.pokemon;
 
     // console.log(pokemonName + ', I choose you!')
@@ -67,8 +71,6 @@ while (i < pokemonsEl.length ) {
     // Declaration of variable player1Img lets us select the img inside the element with the class name "player1".
 
     var player1Img = document.querySelector('.player1').getElementsByTagName('img')
-
-    
 
     // Below variable player2Img lets us select the img inside the element with the class name "player2".
 
@@ -106,7 +108,24 @@ while (i < pokemonsEl.length ) {
 
     player2Img[0].src = currentRivalPokemon[0].img;
 
-    console.log(currentPokemon);
+    // User has to choose an attack.
+
+
+    // CPU health is decreased.
+
+    // User health is decreased.
+
+    // Now to create the logic.
+
+    // Outcome: rock > scissors
+
+    // Outcome: paper > rock
+
+    // Outcome: scissors > paper
+
+    // Depending on pokemon type and the defense, there will be an expression that is going to determine how much damage is done.
+
+    // When either player or the CPU's health is less than or equal to zero, a winner is determined and the game is over.
   }
   i++
 }
