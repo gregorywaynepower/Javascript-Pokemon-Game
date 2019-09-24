@@ -64,9 +64,11 @@ while (i < pokemonsEl.length ) {
 
     // console.log(pokemonName + ', I choose you!')
 
+    // Declaration of variable player1Img lets us select the img inside the element with the class name "player1".
+
     var player1Img = document.querySelector('.player1').getElementsByTagName('img')
 
-    // Above variable lets us select the img inside the element with the class name "player1".
+    
 
     // Below variable player2Img lets us select the img inside the element with the class name "player2".
 
