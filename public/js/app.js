@@ -64,7 +64,7 @@ var a = 0;
 
 while (a < attackBtnsEl.length) {
   attackBtnsEl[a].onclick = function() {
-    var attackName =  /*this.attackBtnsEl[a] Try accessing the HTMLInner method, try to get to the text inside each div, now there that will let you know which attack you're going to choose. That or just the index number in "attackBtnsEl" can be the criterion.*/
+    var attackName =  /*this.attackBtnsEl[a] Try accessing the HTMLInner method, try to get to the text inside each div, now there that will let you know which attack you're going to choose. That or just the index number in "attackBtnsEl" can be the criterion. Test at work.*/
     
     console.log(attackName)
   }
