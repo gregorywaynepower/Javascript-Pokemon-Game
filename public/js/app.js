@@ -56,7 +56,7 @@ var attackBtnsEl = document.getElementById('battle-screen').querySelectorAll('.a
 
 // Below should print an array that has a length of 3, which represents our three elements that we are selecting.
 
-console.log(attackBtnsEl.length);
+// console.log(attackBtnsEl.length);
 
 // We have to declare a variable that will act as our counter, independently of var i, which is a few lines down.
 
@@ -79,23 +79,25 @@ var cpuAttack = function(){
 
   return attacks[randomNumber(0,3)]
 }
-console.log(cpuAttack)
 
+var calculateInitialHealth = function(user){
+  return ((0.20 * Math.sqrt(user.level)) * user.defense) * user.hp
+}
 
 var play = function(userAttack, cpuAttack){
   switch(userAttack) {
     case 'rock':
-      if(cpuAttack == 'paper'){
+      if(cpuAttack() == 'paper'){
         console.log("Paper beats rock. The CPU's attack lands.")
       }
-      if(cpuAttack == 'scissors'){
+      if(cpuAttack() == 'scissors'){
         console.log("Rock beats scissors. Your attack lands.")
       }
-      if(cpuAttack == 'rock'){
+      if(cpuAttack() == 'rock'){
         console.log("Rock collides with rock. Both of your attacks collide, resulting in a draw.")
       }
-      console.log("CPU's attack was " + cpuAttack + ".")
-      console.log("Your attack was " + userAttack + ".")
+      // console.log("CPU's attack was " + cpuAttack() + ".")
+      // console.log("Your attack was " + userAttack + ".")
       break;
     case 'paper':
       console.log(userAttack)
@@ -143,25 +145,29 @@ while (i < pokemonsEl.length ) {
 
     battleScreenEl.classList.toggle('active');
 
-    // From the inside to to the outside: the string at "pokemon.name" is returned if it is equal to the string at "gameState.userPokemon". The returned string at "pokemon.name" via filter(), so a new array is created inside pokemonsDB. This value will be assigned as currentPokemon.
+    // From the inside to to the outside: the string at "pokemon.name" is returned if it is equal to the string at "gameState.userPokemon". The returned string at "pokemon.name" via filter(), so a new array is created inside pokemonsDB. This value will be assigned as currentPokemon inside the gameState object.
 
-    var currentPokemon = pokemonsDB.filter(function(pokemon){
+    gameState.currentPokemon = pokemonsDB.filter(function(pokemon){
       return pokemon.name == gameState.userPokemon
     });
 
-    // This assignment changes the value of the image.
+    // This assignment changes the value of the image inside the gameState object.
 
-    player1Img[0].src = currentPokemon[0].img;
+    player1Img[0].src = gameState.currentPokemon[0].img;
 
-    // The same process is carried out as it was with the currentPokemon variable.
+    // The same process is carried out as it was with the currentPokemon inside the gameState object.
 
-    var currentRivalPokemon = pokemonsDB.filter(function(pokemon){
+    gameState.currentRivalPokemon = pokemonsDB.filter(function(pokemon){
       return pokemon.name == gameState.rivalPokemon
     });
 
     // Changes values of image.
 
-    player2Img[0].src = currentRivalPokemon[0].img;
+    player2Img[0].src = gameState.currentRivalPokemon[0].img;
+
+    calculateInitialHealth(gameState.currentPokemon)
+
+    console.log(calculateInitialHealth(gameState.currentPokemon))
 
     // User has to choose an attack.
 
