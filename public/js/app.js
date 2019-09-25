@@ -56,7 +56,7 @@ var attackBtnsEl = document.getElementById('battle-screen').querySelectorAll('.a
 
 // Below should print an array that has a length of 3. But we're getting zero. So there is a reason the elements are not being selected.
 
-console.log(attackBtnsEl.length);
+console.log(attackBtnsEl);
 
 // We have to declare a variable that will act as our counter, independently of var i, which is a few lines down.
 
@@ -64,7 +64,7 @@ var a = 0;
 
 while (a < attackBtnsEl.length) {
   attackBtnsEl[a].onclick = function() {
-    var attackName = this.dataset.attack
+    var attackName =  /*this.attackBtnsEl[a] Try accessing the HTMLInner method, try to get to the text inside each div, now there that will let you know which attack you're going to choose. That or just the index number in "attackBtnsEl" can be the criterion.*/
     
     console.log(attackName)
   }
