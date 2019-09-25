@@ -80,8 +80,10 @@ var cpuAttack = function(){
   return attacks[randomNumber(0,3)]
 }
 
+// calculateInitialHealh is the square root of the pokemon's level, multiplied by the defense, hitpoints, then it is reduced to 80%.
+
 var calculateInitialHealth = function(user){
-  return ((0.20 * Math.sqrt(user.level)) * user.defense) * user.hp
+  return ((0.20 * Math.sqrt(user[0].level)) * user[0].defense) * user[0].hp
 }
 
 var play = function(userAttack, cpuAttack){
@@ -165,9 +167,11 @@ while (i < pokemonsEl.length ) {
 
     player2Img[0].src = gameState.currentRivalPokemon[0].img;
 
-    calculateInitialHealth(gameState.currentPokemon)
+    // By selected currentPokemon[0], instead of just currentPokemon, the health attribute will land inside the array within currentPokemon, instead of "next to" the array of key:value pairs within the currentPokemon object.
 
-    console.log(calculateInitialHealth(gameState.currentPokemon))
+    gameState.currentPokemon[0].health = calculateInitialHealth(gameState.currentPokemon)
+
+    console.log(gameState)
 
     // User has to choose an attack.
 
