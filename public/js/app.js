@@ -54,9 +54,9 @@ var battleScreenEl = document.getElementById('battle-screen');
 
 var attackBtnsEl = document.getElementById('battle-screen').querySelectorAll('.attack')
 
-// Below should print an array that has a length of 3. But we're getting zero. So there is a reason the elements are not being selected.
+// Below should print an array that has a length of 3, which represents our three elements that we are selecting.
 
-console.log(attackBtnsEl);
+console.log(attackBtnsEl.length);
 
 // We have to declare a variable that will act as our counter, independently of var i, which is a few lines down.
 
@@ -64,11 +64,45 @@ var a = 0;
 
 while (a < attackBtnsEl.length) {
   attackBtnsEl[a].onclick = function() {
-    var attackName =  /*this.attackBtnsEl[a] Try accessing the HTMLInner method, try to get to the text inside each div, now there that will let you know which attack you're going to choose. That or just the index number in "attackBtnsEl" can be the criterion. Test at work.*/
+    // var attackName selects the data attribute within the child element.
+    var attackName =  this.dataset.attack
+    // We add "currentUserAttack as an key value to our gameState object above."
+    gameState.currentUserAttack = attackName
     
-    console.log(attackName)
+    play(attackName, cpuAttack)
   }
   a++
+}
+
+var cpuAttack = function(){
+  var attacks = ['rock', 'paper', 'scissors']
+
+  return attacks[randomNumber(0,3)]
+}
+console.log(cpuAttack)
+
+
+var play = function(userAttack, cpuAttack){
+  switch(userAttack) {
+    case 'rock':
+      if(cpuAttack == 'paper'){
+        console.log("Paper beats rock. The CPU's attack lands.")
+      }
+      if(cpuAttack == 'scissors'){
+        console.log("Rock beats scissors. Your attack lands.")
+      }
+      if(cpuAttack == 'rock'){
+        console.log("Rock collides with rock. Both of your attacks collide, resulting in a draw.")
+      }
+      console.log("CPU's attack was " + cpuAttack + ".")
+      console.log("Your attack was " + userAttack + ".")
+      break;
+    case 'paper':
+      console.log(userAttack)
+      break;
+    case 'scissors':
+      console.log(userAttack) 
+  }
 }
 
 // The "var i = 0;" is our "integer", it functions as a counter that lets us iterate through the functions/elements.
