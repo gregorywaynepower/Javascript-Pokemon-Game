@@ -52,11 +52,13 @@ var battleScreenEl = document.getElementById('battle-screen');
 
 // var attackBtnsEl is how we are going to grab all of the child elements with the class name "attack" under element with the class name "battle-screen".
 
-var attackBtnsEl = document.getElementById('battle-screen').querySelectorAll('.attack');
+var attackBtnsEl = document.getElementById('battle-screen').querySelectorAll('.attack')
+
+// Below should print an array that has a length of 3. But we're getting zero. So there is a reason the elements are not being selected.
+
+console.log(attackBtnsEl.length);
 
 // We have to declare a variable that will act as our counter, independently of var i, which is a few lines down.
-
-console.log(attackBtnsEl)
 
 var a = 0;
 
