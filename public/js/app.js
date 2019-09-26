@@ -292,25 +292,6 @@ while (i < pokemonsEl.length ) {
 
 
     console.log(gameState)
-
-    // User has to choose an attack.
-
-
-    // CPU health is decreased.
-
-    // User health is decreased.
-
-    // Now to create the logic.
-
-    // Outcome: rock > scissors
-
-    // Outcome: paper > rock
-
-    // Outcome: scissors > paper
-
-    // Depending on pokemon type and the defense, there will be an expression that is going to determine how much damage is done.
-
-    // When either player or the CPU's health is less than or equal to zero, a winner is determined and the game is over.
   }
   i++
 }
