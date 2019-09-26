@@ -1,7 +1,10 @@
 
-// This is the simulated database, an array that holds all of our objects, with all their key-value pairs.
+// Gamestate, holds the information about the pokemon throughout the session.
 
-var pokemonsDB = [
+var gameState = {
+  userPokemon: '',
+  rivalPokemon: '',
+  pokemonDB: [
     {
       name: 'Charmander',
       type: 'fire',
@@ -30,12 +33,6 @@ var pokemonsDB = [
       img: "http://www.smogon.com/dex/media/sprites/xy/squirtle.gif"
     },  
   ]
-
-// Gamestate, states what pokemon is present.
-
-var gameState = {
-  userPokemon: '',
-  rivalPokemon: ''
 }
 
 // We pokemonsEl represents the elements with the classname "character", within the class "select-screen".
@@ -262,9 +259,9 @@ while (i < pokemonsEl.length ) {
 
     battleScreenEl.classList.toggle('active');
 
-    // From the inside to to the outside: the string at "pokemon.name" is returned if it is equal to the string at "gameState.userPokemon". The returned string at "pokemon.name" via filter(), so a new array is created inside pokemonsDB. This value will be assigned as currentPokemon inside the gameState object.
+    // From the inside to to the outside: the string at "pokemon.name" is returned if it is equal to the string at "gameState.userPokemon". The returned string at "pokemon.name" via filter(), so a new array is created inside gameState.pokemonDB. This value will be assigned as currentPokemon inside the gameState object.
 
-    gameState.currentPokemon = pokemonsDB.filter(function(pokemon){
+    gameState.currentPokemon = gameState.pokemonDB.filter(function(pokemon){
       return pokemon.name == gameState.userPokemon
     });
 
@@ -274,7 +271,7 @@ while (i < pokemonsEl.length ) {
 
     // The same process is carried out as it was with the currentPokemon inside the gameState object.
 
-    gameState.currentRivalPokemon = pokemonsDB.filter(function(pokemon){
+    gameState.currentRivalPokemon = gameState.pokemonDB.filter(function(pokemon){
       return pokemon.name == gameState.rivalPokemon
     });
 
