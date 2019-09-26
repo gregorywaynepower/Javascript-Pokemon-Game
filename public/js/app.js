@@ -80,16 +80,33 @@ var cpuAttack = function(){
   return attacks[randomNumber(0,3)]
 }
 
-// calculateInitialHealh is the square root of the pokemon's level, multiplied by the defense, hitpoints, then it is reduced to 80%.
+// calculateInitialHealh is the square root of the pokemon's level, multiplied by the defense, hitpoints, then it is reduced to 80% of its original value.
 
 var calculateInitialHealth = function(user){
   return ((0.20 * Math.sqrt(user[0].level)) * user[0].defense) * user[0].hp
 }
 
+// attackMove represents the player's attack against the CPU.
+
+var attackMove = function(attack, level, stack, critical, enemy) {
+  console.log('enemy.health before attack: ' + enemy.health)
+  var attackAmount = ((attack * level ) * (stack + critical))
+  // You have to assign a new value to "enemy.health". We can't just use "enemy.health - attackAmount" because that does not change our enemy's health after an attack.
+  enemy.health = enemy.health - attackAmount
+
+  console.log('enemy.health after attack: ' + enemy.health)
+}
+
+// 
+
 var play = function(userAttack, cpuAttack){
+  var currentPokemon = gameState.currentPokemon[0]
+  var currentRivalPokemon = gameState.currentRivalPokemon[0]
+
   switch(userAttack) {
     case 'rock':
       if(cpuAttack() == 'paper'){
+        attackMove(currentPokemon.attack, currentPokemon.level, 0.80, 0.50, currentRivalPokemon)
         console.log("Paper beats rock. The CPU's attack lands.")
       }
       if(cpuAttack() == 'scissors'){
@@ -171,6 +188,11 @@ while (i < pokemonsEl.length ) {
 
     gameState.currentPokemon[0].health = calculateInitialHealth(gameState.currentPokemon)
 
+    // Doing the same thing for the CPU.
+
+    gameState.currentRivalPokemon[0].health = calculateInitialHealth(gameState.currentRivalPokemon)
+
+
     console.log(gameState)
 
     // User has to choose an attack.
@@ -206,7 +228,6 @@ function randomNumber(min, max) {
 function cpuPick() {
   gameState.rivalPokemon = pokemonsEl[randomNumber(0, 3)].dataset.pokemon
 }
-
 
 
 
