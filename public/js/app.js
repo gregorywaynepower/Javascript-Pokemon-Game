@@ -31,25 +31,30 @@ var gameState = {
       defense: 65,
       level: 1,
       img: "http://www.smogon.com/dex/media/sprites/xy/squirtle.gif"
-    },  
+    },
+    elements: {
+      // pokemonsEl represents the elements with the classname "character", within the class "select-screen".
+
+      pokemonsEl: document.querySelector('.select-screen').querySelectorAll('.character')
+
+      // Another way to grab an element, in this case we are selecting the element with the ID "battle-screen".
+
+      battleScreenEl: document.getElementById('battle-screen')
+
+      // var attackBtnsEl is how we are going to grab all of the child elements with the class name "attack" under element with the class name "battle-screen".
+
+      attackBtnsEl: document.getElementById('battle-screen').querySelectorAll('.attack')
+    }
   ]
 }
 
-// We pokemonsEl represents the elements with the classname "character", within the class "select-screen".
 
-var pokemonsEl = document.querySelector('.select-screen').querySelectorAll('.character');
 
-// This console.log gives us a chance to look at what elements we have selected.
 
-console.log(pokemonsEl);
 
-// Another way to grab an element, in this case we are selecting the element with the ID "battle-screen".
 
-var battleScreenEl = document.getElementById('battle-screen');
 
-// var attackBtnsEl is how we are going to grab all of the child elements with the class name "attack" under element with the class name "battle-screen".
 
-var attackBtnsEl = document.getElementById('battle-screen').querySelectorAll('.attack')
 
 // Below should print an array that has a length of 3, which represents our three elements that we are selecting.
 
@@ -227,11 +232,11 @@ var i = 0;
 
 // Our first loop, that runs on however many elements are within the var "pokemonsEl" (which is an array of HTML elements).
 
-while (i < pokemonsEl.length ) {
+while (i < gameState.elements.pokemonsEl.length ) {
 
-  // Adds a function that is activated when we click on any of the elements that are represented by pokemonsEl.
+  // Adds a function that is activated when we click on any of the elements that are represented by gameState.elements.pokemonsEl.
 
-  pokemonsEl[i].onclick = function() {
+  gameState.elements.pokemonsEl[i].onclick = function() {
 
     // var pokemonName is assigned the pokemon's name from a value within the HTML attribute "data-pokemon".
     
@@ -302,7 +307,7 @@ function randomNumber(min, max) {
 // Here we are putting parameters into the "randomNumber()" function where the rival could be picked from any of the first, second, or third attributes within the HTML elements that we have selected earlier, which exist as an array.
 
 function cpuPick() {
-  gameState.rivalPokemon = pokemonsEl[randomNumber(0, 3)].dataset.pokemon
+  gameState.rivalPokemon = gameState.elements.pokemonsEl[randomNumber(0, 3)].dataset.pokemon
 }
 
 
