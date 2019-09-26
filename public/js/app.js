@@ -88,13 +88,20 @@ var calculateInitialHealth = function(user){
 
 // attackMove represents the player's attack against the CPU.
 
-var attackMove = function(attack, level, stack, critical, enemy) {
-  console.log('enemy.health before attack: ' + enemy.health)
+var attackMove = function(attack, level, stack, critical, enemy, attacker) {
+  console.log(enemy.name +"'s health before the attack is " + enemy.health + " points.")
   var attackAmount = ((attack * level ) * (stack + critical))
   // You have to assign a new value to "enemy.health". We can't just use "enemy.health - attackAmount" because that does not change our enemy's health after an attack.
   enemy.health = enemy.health - attackAmount
+  checkWinner(enemy, attacker)
+  console.log(enemy.name +"'s health after the attack is " + enemy.health + " points.")
+}
 
-  console.log('enemy.health after attack: ' + enemy.health)
+var checkWinner = function(enemy, attacker) {
+  if (enemy.health <= 0) {
+    console.log("The winner is " + attacker.name + "!")
+  }
+  
 }
 
 // 
@@ -106,23 +113,114 @@ var play = function(userAttack, cpuAttack){
   switch(userAttack) {
     case 'rock':
       if(cpuAttack() == 'paper'){
-        attackMove(currentPokemon.attack, currentPokemon.level, 0.80, 0.50, currentRivalPokemon)
-        console.log("Paper beats rock. The CPU's attack lands.")
+        if(currentPokemon.health >= 1 && currentRivalPokemon.health >= 1) {
+          // User Attack
+          attackMove(currentPokemon.attack, currentPokemon.level, 0.80, 0.50, currentRivalPokemon, currentPokemon)
+          if (currentRivalPokemon.health >= 1) {
+            // CPU Attack
+            attackMove(currentRivalPokemon.attack, currentRivalPokemon.level, 0.80, 2.00, currentPokemon, currentRivalPokemon)
+            console.log("Paper beats rock. The CPU's attack is more effective.")
+          }
+        }
       }
       if(cpuAttack() == 'scissors'){
-        console.log("Rock beats scissors. Your attack lands.")
+        if(currentPokemon.health >= 1 && currentRivalPokemon.health >= 1) {
+          // User Attack
+          attackMove(currentPokemon.attack, currentPokemon.level, 0.80, 2.00, currentRivalPokemon, currentPokemon)
+          if (currentRivalPokemon.health >= 1) {
+            // CPU Attack
+            attackMove(currentRivalPokemon.attack, currentRivalPokemon.level, 0.80, 0.50, currentPokemon, currentRivalPokemon)
+            console.log("Rock beats scissors. Your attack is more effective.")
+          }
+        }
       }
       if(cpuAttack() == 'rock'){
-        console.log("Rock collides with rock. Both of your attacks collide, resulting in a draw.")
+        if(currentPokemon.health >= 1 && currentRivalPokemon.health >= 1) {
+          // User Attack
+          attackMove(currentPokemon.attack, currentPokemon.level, 0.80, 0.10, currentRivalPokemon, currentPokemon)
+          if (currentRivalPokemon.health >= 1) {
+            // CPU Attack
+            attackMove(currentRivalPokemon.attack, currentRivalPokemon.level, 0.80, 0.10, currentPokemon, currentRivalPokemon)
+            console.log("Rock collides with rock. Both of you hit each other, resulting in a draw.")
+          }
+        }
       }
       // console.log("CPU's attack was " + cpuAttack() + ".")
       // console.log("Your attack was " + userAttack + ".")
       break;
     case 'paper':
-      console.log(userAttack)
+        if(cpuAttack() == 'paper'){
+            if(currentPokemon.health >= 1 && currentRivalPokemon.health >= 1) {
+            // User Attack
+            attackMove(currentPokemon.attack, currentPokemon.level, 0.80, 0.10, currentRivalPokemon, currentPokemon)
+            if (currentRivalPokemon.health >= 1) {
+              // CPU Attack
+              attackMove(currentRivalPokemon.attack, currentRivalPokemon.level, 0.80, 0.10, currentPokemon, currentRivalPokemon)
+              console.log("Both sheets of paper bend awkardly when they collide, with both of you having terrible paper cuts, resulting in a draw.")
+            }
+          }
+        }
+        if(cpuAttack() == 'scissors'){
+          if(currentPokemon.health >= 1 && currentRivalPokemon.health >= 1) {
+            // User Attack
+            attackMove(currentPokemon.attack, currentPokemon.level, 0.80, 0.50, currentRivalPokemon, currentPokemon)
+            if (currentRivalPokemon.health >= 1) {
+              // CPU Attack
+              attackMove(currentRivalPokemon.attack, currentRivalPokemon.level, 0.80, 2.00, currentPokemon, currentRivalPokemon)
+              console.log("Your sheet of paper is cut by scissors. The CPU's attack is more effective.")
+            }
+          }
+        }
+        if(cpuAttack() == 'rock'){
+          if(currentPokemon.health >= 1 && currentRivalPokemon.health >= 1) {
+            // User Attack
+            attackMove(currentPokemon.attack, currentPokemon.level, 0.80, 2.00, currentRivalPokemon, currentPokemon)
+            if (currentRivalPokemon.health >= 1) {
+              // CPU Attack
+              attackMove(currentRivalPokemon.attack, currentRivalPokemon.level, 0.80, 0.50, currentPokemon, currentRivalPokemon)
+              console.log("Paper covers rock. Your attack is more effective.")
+            }
+          }
+        }
+        // console.log("CPU's attack was " + cpuAttack() + ".")
+        // console.log("Your attack was " + userAttack + ".")
       break;
     case 'scissors':
-      console.log(userAttack) 
+        if(cpuAttack() == 'paper'){
+          if(currentPokemon.health >= 1 && currentRivalPokemon.health >= 1) {
+            // User Attack
+            attackMove(currentPokemon.attack, currentPokemon.level, 0.80, 2.00, currentRivalPokemon, currentPokemon)
+            if (currentRivalPokemon.health >= 1) {
+              // CPU Attack
+              attackMove(currentRivalPokemon.attack, currentRivalPokemon.level, 0.80, 0.50, currentPokemon, currentRivalPokemon)
+              console.log("Scissors cut through the CPU's paper defenses. Your attack is more effective.")
+            }
+          }
+        }
+        if(cpuAttack() == 'scissors'){
+          if(currentPokemon.health >= 1 && currentRivalPokemon.health >= 1) {
+            // User Attack
+            attackMove(currentPokemon.attack, currentPokemon.level, 0.80, 0.10, currentRivalPokemon, currentPokemon)
+            if (currentRivalPokemon.health >= 1) {
+              // CPU Attack
+              attackMove(currentRivalPokemon.attack, currentRivalPokemon.level, 0.80, 0.10, currentPokemon, currentRivalPokemon)
+              console.log("Your scissors collides clumsily with the CPU's own pair. Resulting in a draw.")
+            }
+          }
+        }
+        if(cpuAttack() == 'rock'){
+          if(currentPokemon.health >= 1 && currentRivalPokemon.health >= 1) {
+            // User Attack
+            attackMove(currentPokemon.attack, currentPokemon.level, 0.80, 0.50, currentRivalPokemon, currentPokemon)
+            if (currentRivalPokemon.health >= 1) {
+              // CPU Attack
+              attackMove(currentRivalPokemon.attack, currentRivalPokemon.level, 0.80, 2.00, currentPokemon, currentRivalPokemon)
+              console.log("Your scissors are crushed by the CPU's rock. The CPU's attack is more effective.")
+            }
+          }
+        }
+        // console.log("CPU's attack was " + cpuAttack() + ".")
+        // console.log("Your attack was " + userAttack + ".")
   }
 }
 
