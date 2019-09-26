@@ -313,27 +313,6 @@ function cpuPick() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
   
 //   var attack = 20;
