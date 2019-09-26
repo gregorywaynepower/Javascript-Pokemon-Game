@@ -31,21 +31,21 @@ var gameState = {
       defense: 65,
       level: 1,
       img: "http://www.smogon.com/dex/media/sprites/xy/squirtle.gif"
-    },
-    elements: {
-      // pokemonsEl represents the elements with the classname "character", within the class "select-screen".
-
-      pokemonsEl: document.querySelector('.select-screen').querySelectorAll('.character')
-
-      // Another way to grab an element, in this case we are selecting the element with the ID "battle-screen".
-
-      battleScreenEl: document.getElementById('battle-screen')
-
-      // var attackBtnsEl is how we are going to grab all of the child elements with the class name "attack" under element with the class name "battle-screen".
-
-      attackBtnsEl: document.getElementById('battle-screen').querySelectorAll('.attack')
     }
-  ]
+  ],
+  elements: {
+    // pokemonsEl represents the elements with the classname "character", within the class "select-screen".
+
+    pokemonsEl: document.querySelector('.select-screen').querySelectorAll('.character'),
+
+    // Another way to grab an element, in this case we are selecting the element with the ID "battle-screen".
+
+    battleScreenEl: document.getElementById('battle-screen'),
+
+    // attackBtnsEl is how we are going to grab all of the child elements with the class name "attack" under element with the class name "battle-screen".
+
+    attackBtnsEl: document.getElementById('battle-screen').querySelectorAll('.attack')
+  }
 }
 
 
@@ -58,14 +58,14 @@ var gameState = {
 
 // Below should print an array that has a length of 3, which represents our three elements that we are selecting.
 
-// console.log(attackBtnsEl.length);
+// console.log(gameState.elements.attackBtnsEl.length);
 
 // We have to declare a variable that will act as our counter, independently of var i, which is a few lines down.
 
 var a = 0;
 
-while (a < attackBtnsEl.length) {
-  attackBtnsEl[a].onclick = function() {
+while (a < gameState.elements.attackBtnsEl.length) {
+  gameState.elements.attackBtnsEl[a].onclick = function() {
     // var attackName selects the data attribute within the child element.
     var attackName =  this.dataset.attack
     // We add "currentUserAttack as an key value to our gameState object above."
@@ -262,7 +262,7 @@ while (i < gameState.elements.pokemonsEl.length ) {
 
     // Changes the screen to the battle screen by changing the position of the background.
 
-    battleScreenEl.classList.toggle('active');
+    gameState.elements.battleScreenEl.classList.toggle('active');
 
     // From the inside to to the outside: the string at "pokemon.name" is returned if it is equal to the string at "gameState.userPokemon". The returned string at "pokemon.name" via filter(), so a new array is created inside gameState.pokemonDB. This value will be assigned as currentPokemon inside the gameState object.
 
