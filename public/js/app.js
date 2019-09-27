@@ -113,10 +113,13 @@ var gameState = {
 
         gameState.currentPokemon[0].health = gameState.calculateInitialHealth(gameState.currentPokemon)
 
+        gameState.currentPokemon[0].originalHealth = gameState.calculateInitialHealth(gameState.currentPokemon)
+
         // Doing the same thing for the CPU.
 
         gameState.currentRivalPokemon[0].health = gameState.calculateInitialHealth(gameState.currentRivalPokemon)
 
+        gameState.currentRivalPokemon[0].originalHealth = gameState.calculateInitialHealth(gameState.currentRivalPokemon)
 
         console.log(gameState)
       }
@@ -158,6 +161,20 @@ var gameState = {
     var attackAmount = ((attack * level) * (stack + critical))
     // You have to assign a new value to "enemy.health". We can't just use "enemy.health - attackAmount" because that does not change our enemy's health after an attack.
     enemy.health = enemy.health - attackAmount
+
+
+    var userHP = document.querySelector('.player1').querySelector('.health-bar').querySelector('.inside')
+    var cpuHP = document.querySelector('.player2').querySelector('.health-bar').querySelector('.inside')
+
+    if (enemy.owner == 'user') {
+      var minusPercent = ((enemy.health * 100) / enemy.originalHealth)
+      userHP.style.width = ((minusPercent) > 0 ? 0 : minusPercent) + '%'
+    } else {
+      var minusPercent = ((enemy.health * 100) / enemy.originalHealth)
+      cpuHP.style.width = ((minusPercent) > 0 ? 0 : minusPercent) + '%'
+    }
+    
+
     gameState.checkWinner(enemy, attacker)
     console.log(enemy.name + "'s health after the attack is " + enemy.health + " points.")
   },
@@ -181,6 +198,8 @@ var gameState = {
   play: function (userAttack, cpuAttack) {
     var currentPokemon = gameState.currentPokemon[0]
     var currentRivalPokemon = gameState.currentRivalPokemon[0]
+    currentPokemon.owner = 'user'
+    currentRivalPokemon.owner = 'cpu'
 
     switch (userAttack) {
       case 'rock':
