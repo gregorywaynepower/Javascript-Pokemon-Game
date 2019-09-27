@@ -1,3 +1,4 @@
+import { variableDeclarator } from "@babel/types";
 
 // Gamestate, holds the information about the pokemon throughout the session.
 
