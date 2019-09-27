@@ -48,9 +48,6 @@ var gameState = {
     attackBtnsEl: document.getElementById('battle-screen').querySelectorAll('.attack')
   },
   init: function () {
-    // Below should print an array, which represents our three elements that we are selecting.
-
-    console.log(gameState.elements.attackBtnsEl)
 
     // The "var i = 0;" is our "integer", it functions as a counter that lets us iterate through the functions/elements.
 
