@@ -355,15 +355,42 @@ body{
 
 .game-over-screen{
   .container{
+    background: url(//i.imgur.com/UZKEjzG.png) no-repeat center center; 
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    width: 100%;
+    padding: 100px 50px;
+    overflow: auto;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    .game-over-text{
+      font-family: 'Bangers', cursive;
+      text-transform: capitalize;
+      font-size: 200px;
+      text-align: center;
+      position: relative;
+      top: -110px;
+    }
     .dialogue-box{
       .question{
-
+        font-family: 'Press Start 2P', cursive;
+      
       }
-      .yesBtn{
+      .options-box{
+        display: flex;
+        width: 25vh;
+        .yesBtn{
+          font-family: 'Press Start 2P', cursive;
+          
+        }
+        .noBtn{
+          font-family: 'Press Start 2P', cursive;
 
-      }
-      .noBtn{
-        
+        }
       }
     }
   }
