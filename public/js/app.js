@@ -193,7 +193,14 @@ var gameState = {
   // Here we are putting parameters into the "randomNumber()" function where the rival could be picked from any of the first, second, or third attributes within the HTML elements that we have selected earlier, which exist as an array.
 
   cpuPick: function () {
-    gameState.rivalPokemon = gameState.elements.pokemonsEl[gameState.randomNumber(0, 3)].dataset.pokemon
+    // This loop runs to prevent the CPU from picking the same pokemon as the player.
+    do {
+      gameState.rivalPokemon = gameState.elements.pokemonsEl[gameState.randomNumber(0, 3)].dataset.pokemon
+      console.log("CPU tried to choose: " + gameState.rivalPokemon + ".")
+    }
+    while (
+      gameState.userPokemon == gameState.rivalPokemon
+    )
   },
   play: function (userAttack, cpuAttack) {
     var currentPokemon = gameState.currentPokemon[0]
