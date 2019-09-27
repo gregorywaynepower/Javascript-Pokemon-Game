@@ -168,10 +168,10 @@ var gameState = {
 
     if (enemy.owner == 'user') {
       var minusPercent = ((enemy.health * 100) / enemy.originalHealth)
-      userHP.style.width = ((minusPercent) > 0 ? 0 : minusPercent) + '%'
+      userHP.style.width = ((minusPercent) < 0 ? 0 : minusPercent) + '%'
     } else {
       var minusPercent = ((enemy.health * 100) / enemy.originalHealth)
-      cpuHP.style.width = ((minusPercent) > 0 ? 0 : minusPercent) + '%'
+      cpuHP.style.width = ((minusPercent) < 0 ? 0 : minusPercent) + '%'
     }
     
 
