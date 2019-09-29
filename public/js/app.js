@@ -1,4 +1,3 @@
-import { variableDeclarator } from "@babel/types";
 
 // Gamestate, holds the information about the pokemon throughout the session.
 
@@ -45,9 +44,15 @@ var gameState = {
 
     // attackBtnsEl is how we are going to grab all of the child elements with the class name "attack" under element with the class name "battle-screen".
 
-    attackBtnsEl: document.getElementById('battle-screen').querySelectorAll('.attack')
+    attackBtnsEl: document.getElementById('battle-screen').querySelectorAll('.attack'),
   },
   init: function () {
+
+    // We have to have a while loop to iterate over our elements for the game-over-page.
+
+    var j = 0;
+
+    
 
     // The "var i = 0;" is our "integer", it functions as a counter that lets us iterate through the functions/elements.
 
@@ -124,7 +129,7 @@ var gameState = {
       i++
     }
 
-    // We have to declare a variable that will act as our counter, independently of var i, which is a few lines down.
+    // We have to declare a variable that will act as our counter, independently of var i.
 
     var a = 0;
 
@@ -321,3 +326,15 @@ var gameState = {
   }
 };
 gameState.init()
+
+    //  We must toggle our Game Over Screen.
+
+var gameOverScreenEl = document.querySelector(".game-over-screen")
+
+    // We must select the text inside the "inner-win-box".
+
+var innerWinnerBoxTextEl = document.querySelector(".inner-win")
+
+    // We must select the img within the pokemon-portrait element.
+
+var winnerPictureEl = document.querySelector(".pokemon-portrait")
