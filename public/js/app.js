@@ -45,6 +45,8 @@ var gameState = {
     // attackBtnsEl is how we are going to grab all of the child elements with the class name "attack" under element with the class name "battle-screen".
 
     attackBtnsEl: document.getElementById('battle-screen').querySelectorAll('.attack'),
+
+    gameOverScreenEl : document.querySelector(".game-over-screen"),
   },
   init: function () {
 
@@ -181,10 +183,12 @@ var gameState = {
     gameState.checkWinner(enemy, attacker)
     console.log(enemy.name + "'s health after the attack is " + enemy.health + " points.")
   },
-
+// TODO: Read outside 
   checkWinner: function (enemy, attacker) {
     if (enemy.health <= 0) {
       console.log("The winner is " + attacker.name + "!")
+      gameState.elements.battleScreenEl.classList.remove("active")
+      gameState.elements.gameOverScreenEl.toggle("active")
     }
   },
   // Property randomNumber was a solution that I Stackoverflow'ed to be able to generate a random number.
@@ -338,3 +342,11 @@ var innerWinnerBoxTextEl = document.querySelector(".inner-win")
     // We must select the img within the pokemon-portrait element.
 
 var winnerPictureEl = document.querySelector(".pokemon-portrait")
+
+
+var selectionScreenEl = document.querySelector(".select-screen")
+
+console.log(gameOverScreenEl)
+console.log(innerWinnerBoxTextEl)
+console.log(winnerPictureEl)
+console.log(selectionScreenEl)
