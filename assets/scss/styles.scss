@@ -22,6 +22,9 @@ body{
 
 .select-screen{
   position: relative;
+  &.inactive{
+    display: none;
+  }
   .header{
     background: #0a0618; /* Old browsers */
     background: -moz-linear-gradient(top, #0a0618 0%, #261c53 100%); /* FF3.6-15 */
@@ -428,6 +431,7 @@ body{
         font-family: 'Press Start 2P', cursive;
         font-size: 1.75rem;
         padding: 1rem 2rem 3.5rem 2rem;
+        color: white;
       }
       .options-box{
         display: flex;
@@ -438,6 +442,7 @@ body{
         .yesBtn{
           font-family: 'Press Start 2P', cursive;
           background: black;
+          color: white;
           border: solid 3px white;
           border-radius: 3px;
           padding: 1rem;
@@ -448,6 +453,7 @@ body{
         .noBtn{
           font-family: 'Press Start 2P', cursive;
           background: black;
+          color: white;
           border: solid 3px white;
           border-radius: 3px;
           padding: 1rem;

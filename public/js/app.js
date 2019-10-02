@@ -46,7 +46,13 @@ var gameState = {
 
     attackBtnsEl: document.getElementById('battle-screen').querySelectorAll('.attack'),
 
+    // Property that represents Game Over Screen.
+
     gameOverScreenEl : document.querySelector(".game-over-screen"),
+
+    // Property that represents the select screen.
+
+    selectionScreenEl : document.querySelector(".select-screen"),
   },
   init: function () {
 
@@ -183,12 +189,13 @@ var gameState = {
     gameState.checkWinner(enemy, attacker)
     console.log(enemy.name + "'s health after the attack is " + enemy.health + " points.")
   },
-// TODO: Read outside 
+// TODO: See where I need to put "gameState.elements.selectionScreenEl.classList.add("inactive")". Because right now there is a funcy animation.
   checkWinner: function (enemy, attacker) {
     if (enemy.health <= 0) {
       console.log("The winner is " + attacker.name + "!")
+      gameState.elements.selectionScreenEl.classList.add("inactive")
       gameState.elements.battleScreenEl.classList.remove("active")
-      gameState.elements.gameOverScreenEl.toggle("active")
+      gameState.elements.gameOverScreenEl.classList.add("active")
     }
   },
   // Property randomNumber was a solution that I Stackoverflow'ed to be able to generate a random number.
