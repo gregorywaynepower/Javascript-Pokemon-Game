@@ -380,3 +380,12 @@ var gameState = {
   }
 };
 gameState.init()
+
+gameState.elements.yesBtnEl.onclick = function () {
+  console.log("I work!")
+  location.reload();
+}
+
+gameState.elements.noBtnEl.onclick = function () {
+  console.log("Thank you for playing!")
+}
