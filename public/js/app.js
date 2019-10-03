@@ -53,6 +53,14 @@ var gameState = {
     // Property that represents the select screen.
 
     selectionScreenEl : document.querySelector(".select-screen"),
+
+    // Property that represents the image that is displayed of the winning Pokemon on the Game Over Screen.pokemon-portrait
+
+    winnerPictureEl : document.querySelector(".pokemon-portrait").getElementsByTagName("img"),
+
+    // Property that represents the text inside the "Pokemon Wins" Box
+
+    innerWinnerBoxTextEl : document.querySelector(".inner-win")
   },
   init: function () {
 
@@ -82,11 +90,11 @@ var gameState = {
 
         // Declaration of variable player1Img lets us select the img inside the element with the class name "player1".
 
-        var player1Img = document.querySelector(".player1").getElementsByTagName("img");
+        gameState.elements.player1Img = document.querySelector(".player1").getElementsByTagName("img");
 
         // Below variable player2Img lets us select the img inside the element with the class name "player2".
 
-        var player2Img = document.querySelector(".player2").getElementsByTagName("img");
+        gameState.elements.player2Img = document.querySelector(".player2").getElementsByTagName("img");
 
         // We save the pokemon's name to the gamestate with this declaration.
 
@@ -108,7 +116,7 @@ var gameState = {
 
         // This assignment changes the value of the image inside the gameState object.
 
-        player1Img[0].src = gameState.currentPokemon[0].img
+        gameState.elements.player1Img[0].src = gameState.currentPokemon[0].img
 
         // The same process is carried out as it was with the currentPokemon inside the gameState object.
 
@@ -118,7 +126,7 @@ var gameState = {
 
         // Changes values of image.
 
-        player2Img[0].src = gameState.currentRivalPokemon[0].img
+        gameState.elements.player2Img[0].src = gameState.currentRivalPokemon[0].img
 
         // By selected currentPokemon[0], instead of just currentPokemon, the health attribute will land inside the array within currentPokemon, instead of "next to" the array of key:value pairs within the currentPokemon object.
 
@@ -131,6 +139,10 @@ var gameState = {
         gameState.currentRivalPokemon[0].health = gameState.calculateInitialHealth(gameState.currentRivalPokemon)
 
         gameState.currentRivalPokemon[0].originalHealth = gameState.calculateInitialHealth(gameState.currentRivalPokemon)
+
+        gameState.elements.selectionScreenEl.classList.add("inactive")
+
+        gameState.elements.battleScreenEl.classList.add("active")
 
         console.log(gameState)
       }
@@ -195,7 +207,23 @@ var gameState = {
       console.log("The winner is " + attacker.name + "!")
       gameState.elements.selectionScreenEl.classList.add("inactive")
       gameState.elements.battleScreenEl.classList.remove("active")
+      gameState.elements.battleScreenEl.classList.add("game-over")
       gameState.elements.gameOverScreenEl.classList.add("active")
+      if (attacker.name == "Charmander") {
+        console.log("Charmander Won")
+        gameState.elements.innerWinnerBoxTextEl.innerHTML = attacker.name + " wins!"
+        gameState.elements.winnerPictureEl[0].src = "http://www.smogon.com/dex/media/sprites/xy/charmander.gif"
+      } else if (attacker.name == "Squirtle") {
+        console.log("Squirtle Won")
+        gameState.elements.innerWinnerBoxTextEl.innerHTML = attacker.name + " wins!"
+        gameState.elements.winnerPictureEl[0].src = "http://www.smogon.com/dex/media/sprites/xy/squirtle.gif"
+      } else if (attacker.name == "Bulbasaur") {
+        console.log("Bulbasaur Won")
+        gameState.elements.innerWinnerBoxTextEl.innerHTML = attacker.name + " wins!"
+        gameState.elements.winnerPictureEl[0].src = "http://www.smogon.com/dex/media/sprites/xy/bulbasaur.gif"
+      } else {
+        console.log("It's broken.")
+      }
     }
   },
   // Property randomNumber was a solution that I Stackoverflow'ed to be able to generate a random number.
@@ -344,7 +372,7 @@ var gameOverScreenEl = document.querySelector(".game-over-screen")
 
     // We must select the text inside the "inner-win-box".
 
-var innerWinnerBoxTextEl = document.querySelector(".inner-win")
+var innerWinnerBoxTextEl = document.querySelector(".inner-win").innerHTML
 
     // We must select the img within the pokemon-portrait element.
 

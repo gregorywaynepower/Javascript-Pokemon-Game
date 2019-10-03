@@ -22,8 +22,11 @@ body{
 
 .select-screen{
   position: relative;
+  transition: all 0.5s ease-in-out;
+  top: 0vh;
   &.inactive{
-    display: none;
+    top: -100vh;
+    transition: all 0.5s ease-in-out;
   }
   .header{
     background: #0a0618; /* Old browsers */
@@ -120,7 +123,11 @@ body{
   transition: all 0.5s ease-in-out;
   top: 0vh;
   &.active{
-    top:-100vh;
+    top: -100vh;
+    transition: all 0.5s ease-in-out;
+  }
+  &.game-over{
+    top: -200vh;
     transition: all 0.5s ease-in-out;
   }
   .fight-btn{
@@ -358,14 +365,13 @@ body{
 
 .game-over-screen{
   width: 100%;
-  overflow: auto;
   height: 100vh;
   text-align: center;
   position: relative;
   transition: all 0.5s ease-in-out;
   top: 0vh;
   &.active{
-    top:-100vh;
+    top:-200vh;
     transition: all 0.5s ease-in-out;
   }
   .container{
