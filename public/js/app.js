@@ -53,6 +53,16 @@ var gameState = {
     // Property that represents the select screen.
 
     selectionScreenEl : document.querySelector(".select-screen"),
+
+    winnerPictureEl : document.querySelector(".pokemon-portrait").getElementsByTagName("img"),
+
+
+    selectionScreenEl : document.querySelector(".select-screen"),
+
+    yesBtnEl : document.querySelector(".yesBtn"),
+
+    noBtnEl : document.querySelector(".noBtn"),
+
   },
   init: function () {
 
@@ -190,12 +200,16 @@ var gameState = {
     console.log(enemy.name + "'s health after the attack is " + enemy.health + " points.")
   },
 // TODO: See where I need to put "gameState.elements.selectionScreenEl.classList.add("inactive")". Because right now there is a funcy animation.
+// TODO: Make sure elements are selected properly. We will have to have the program put whoever the winner is, into the winner portrait element.
   checkWinner: function (enemy, attacker) {
     if (enemy.health <= 0) {
       console.log("The winner is " + attacker.name + "!")
       gameState.elements.selectionScreenEl.classList.add("inactive")
       gameState.elements.battleScreenEl.classList.remove("active")
       gameState.elements.gameOverScreenEl.classList.add("active")
+      
+    //  TODO: Add if statement here if attacker.name is equal to some value, then we print player1Img. If not equal to that value print player2Img.
+
     }
   },
   // Property randomNumber was a solution that I Stackoverflow'ed to be able to generate a random number.
@@ -348,12 +362,14 @@ var innerWinnerBoxTextEl = document.querySelector(".inner-win")
 
     // We must select the img within the pokemon-portrait element.
 
-var winnerPictureEl = document.querySelector(".pokemon-portrait")
+var winnerPictureEl = document.querySelector(".pokemon-portrait").getElementsByTagName("img")
 
 
 var selectionScreenEl = document.querySelector(".select-screen")
 
-console.log(gameOverScreenEl)
-console.log(innerWinnerBoxTextEl)
+var yesBtnEl = document.querySelector(".yesBtn")
+
+var noBtnEl = document.querySelector(".noBtn")
+
+
 console.log(winnerPictureEl)
-console.log(selectionScreenEl)
