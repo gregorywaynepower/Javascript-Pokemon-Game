@@ -60,7 +60,19 @@ var gameState = {
 
     // Property that represents the text inside the "Pokemon Wins" Box
 
-    innerWinnerBoxTextEl : document.querySelector(".inner-win")
+    innerWinnerBoxTextEl : document.querySelector(".inner-win"),
+
+    yesBtnEl : document.querySelector(".yesBtn"),
+
+    noBtnEl : document.querySelector(".noBtn"),
+
+    //  Select Element for Player-chosen Pokemon
+
+    playerPokemonNameEl : document.querySelector(".playerVsCpuArena").querySelector(".player1").querySelector(".name"),
+
+    //  Select Element for CPU-chosen Pokemon
+
+    cpuPokemonNameEl : document.querySelector(".playerVsCpuArena").querySelector(".player2").querySelector(".name"),
   },
   init: function () {
 
@@ -87,6 +99,8 @@ var gameState = {
         var pokemonName = this.dataset.pokemon;
 
         // console.log(pokemonName + ', I choose you!')
+
+        gameState.elements.playerPokemonNameEl.innerHTML = pokemonName
 
         // Declaration of variable player1Img lets us select the img inside the element with the class name "player1".
 
@@ -201,7 +215,7 @@ var gameState = {
     gameState.checkWinner(enemy, attacker)
     console.log(enemy.name + "'s health after the attack is " + enemy.health + " points.")
   },
-// TODO: See where I need to put "gameState.elements.selectionScreenEl.classList.add("inactive")". Because right now there is a funcy animation.
+
   checkWinner: function (enemy, attacker) {
     if (enemy.health <= 0) {
       console.log("The winner is " + attacker.name + "!")
@@ -239,6 +253,7 @@ var gameState = {
     do {
       gameState.rivalPokemon = gameState.elements.pokemonsEl[gameState.randomNumber(0, 3)].dataset.pokemon
       console.log("CPU tried to choose: " + gameState.rivalPokemon + ".")
+      gameState.elements.cpuPokemonNameEl.innerHTML = gameState.rivalPokemon
     }
     while (
       gameState.userPokemon == gameState.rivalPokemon
@@ -365,23 +380,3 @@ var gameState = {
   }
 };
 gameState.init()
-
-    //  We must toggle our Game Over Screen.
-
-var gameOverScreenEl = document.querySelector(".game-over-screen")
-
-    // We must select the text inside the "inner-win-box".
-
-var innerWinnerBoxTextEl = document.querySelector(".inner-win").innerHTML
-
-    // We must select the img within the pokemon-portrait element.
-
-var winnerPictureEl = document.querySelector(".pokemon-portrait")
-
-
-var selectionScreenEl = document.querySelector(".select-screen")
-
-console.log(gameOverScreenEl)
-console.log(innerWinnerBoxTextEl)
-console.log(winnerPictureEl)
-console.log(selectionScreenEl)
