@@ -73,6 +73,10 @@ var gameState = {
     //  Select Element for CPU-chosen Pokemon
 
     cpuPokemonNameEl : document.querySelector(".playerVsCpuArena").querySelector(".player2").querySelector(".name"),
+
+    // So we can have additional functionallity for "No I don't, button"
+
+    questionPhrasebox : document.querySelector(".dialogue-box").querySelector(".question"),
   },
   init: function () {
 
@@ -388,4 +392,9 @@ gameState.elements.yesBtnEl.onclick = function () {
 
 gameState.elements.noBtnEl.onclick = function () {
   console.log("Thank you for playing!")
+  // gameState.elements.questionPhrasebox.innerHTML = "Where would you like to go?"
+  // gameState.elements.yesBtnEl.style.width = "292px"
+  // gameState.elements.yesBtnEl.innerHTML = "Portfolio"
+  gameState.elements.noBtnEl.innerHTML = "Thank you for playing!"
+  gameState.elements.yesBtnEl.classList.add("in-active")
 }
