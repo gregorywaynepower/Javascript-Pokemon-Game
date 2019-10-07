@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Javascript Pokemon Game</title>
+  <meta property="og:title" content="Gregory Power's Pokemon Battle">
+  <meta name="description" content="Javascript">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css?family=Bangers|Cabin+Sketch:400,700|Freckle+Face|Press+Start+2P"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="select-screen">
+    <div class="header">
+      <div class="mode">VS Mode</div>
+      <div class="title">
+        Choose a Pokemon
+      </div>
+    </div>
+    <div class="main">
+      <div class="character charmander" data-pokemon="Charmander">
+        <div class="title">Charmander</div>
+        <div
+          style="background: url(http://www.smogon.com/dex/media/sprites/xy/charmander.gif) no-repeat center center; -webkit-background-size: 100% 100%;-moz-background-size: 100% 100%;-o-background-size: 100% 100%;background-size: 100% 100%;height: 100px; width: 100px;">
+        </div>
+      </div>
+
+      <div class="character bulbasaur" data-pokemon="Bulbasaur">
+        <div class="title">Bulbasaur</div>
+        <div
+          style="background: url(http://www.smogon.com/dex/media/sprites/xy/bulbasaur.gif) no-repeat center center;-webkit-background-size: 100% 100%;-moz-background-size: 100% 100%;-o-background-size: 100% 100%;background-size: 100% 100%;height: 100px; width: 100px;">
+        </div>
+      </div>
+
+      <div class="character squirtle" data-pokemon="Squirtle">
+        <div class="title">Squirtle</div>
+        <div
+          style="background: url(http://www.smogon.com/dex/media/sprites/xy/squirtle.gif) no-repeat center center;-webkit-background-size: 100% 100%;-moz-background-size: 100% 100%;-o-background-size: 100% 100%;background-size: 100% 100%;height: 100px; width: 100px;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="battle-screen">
+    <div class="fight-txt">
+      fight!
+    </div>
+    <div class="battle-btns">
+      <div class="attack rock" data-attack="rock">
+        <img src="//i.imgur.com/0sWAgmm.png" width="100%">
+        Rock
+      </div>
+      <div class="attack paper" data-attack="paper">
+        <img src="//i.imgur.com/aU8NcKH.png">
+        Paper
+      </div>
+      <div class="attack scissors" data-attack="scissors">
+        <img src="//i.imgur.com/n4HFHgj.png">
+        Scissors
+      </div>
+    </div>
+    <div class="playerVsCpuArena">
+      <div class="player">
+        <div class="player1">
+          <div class="stats">
+            <div class="name">
+              Charmander
+              <div class="level">
+                
+              </div>
+            </div>
+            <div class="health">
+              <div class="title">HP:</div>
+              <div class="health-bar">
+                <div class="inside" style="width: 100%;"></div>
+              </div>
+            </div>
+          </div>
+          <img src="http://www.smogon.com/dex/media/sprites/xy/charmander.gif" />
+        </div>
+      </div>
+      <div class="cpu">
+        <div class="player2">
+          <div class="stats">
+            <div class="name">
+              Charmander
+              <div class="level">
+                
+              </div>
+            </div>
+            <div class="health">
+              <div class="title">HP:</div>
+              <div class="health-bar">
+                <div class="inside" style="width: 100%;"></div>
+              </div>
+            </div>
+          </div>
+          <img src="http://www.smogon.com/dex/media/sprites/xy/charmander.gif" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="game-over-screen">
+    <div class="container">
+      <div class="game-over-text">
+        Game Over!
+      </div>
+      <div class="winner-box">
+        <div class="inner-win">
+          You Won!
+        </div>
+        <div class="pokemon-portrait">
+          <img src="http://www.smogon.com/dex/media/sprites/xy/charmander.gif">
+        </div>
+      </div>
+      <div class="dialogue-box">
+        <div class="question">
+          Would you like to play again?
+        </div>
+        <div class="options-box">
+          <div class="yesBtn">Yes!</div>
+          <div class="noBtn">No!</div>
+          <div class ="thankYou">Thank you for playing!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script src="./app.js"></script>
+
+</html>
