@@ -384,6 +384,10 @@ var gameState = {
 };
 gameState.init()
 
+if(screen.innerHeight > screen.innerWidth){
+  alert("Please use Landscape!");
+}
+
 gameState.elements.yesBtnEl.onclick = function () {
   console.log("I work!")
   location.reload();
