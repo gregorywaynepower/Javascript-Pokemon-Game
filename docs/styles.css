@@ -830,7 +830,7 @@ body {
   }
   #battle-screen .playerVsCpuArena .player {
     position: absolute;
-    bottom: 4.5%;
+    bottom:6.5%;
     left: 5%;
   }
   #battle-screen .playerVsCpuArena .player img {
@@ -903,7 +903,7 @@ body {
   }
   #battle-screen .playerVsCpuArena .cpu {
     position: absolute;
-    bottom: 4.5%;
+    bottom: 6.5%;
     right: 5%;
   }
   #battle-screen .playerVsCpuArena .cpu .player2 {
