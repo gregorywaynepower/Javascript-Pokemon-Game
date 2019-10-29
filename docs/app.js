@@ -384,9 +384,6 @@ var gameState = {
 };
 gameState.init()
 
-if(screen.innerHeight > screen.innerWidth){
-  alert("Please use Landscape!");
-}
 
 gameState.elements.yesBtnEl.onclick = function () {
   console.log("I work!")
@@ -401,3 +398,40 @@ gameState.elements.noBtnEl.onclick = function () {
   gameState.elements.noBtnEl.innerHTML = "Thank you for playing!"
   gameState.elements.yesBtnEl.classList.add("in-active")
 }
+
+function getOrientation() {
+
+  // if window.orientation is available...
+  if( window.orientation && typeof window.orientation === 'number' ) {
+
+      // ... and if the absolute value of orientation is 90...
+      if( Math.abs( window.orientation ) == 90 ) {
+
+            // ... then it's landscape
+            return 'landscape';
+
+      } else {
+
+            // ... otherwise it's portrait
+            return 'portrait';
+
+      }
+
+  } else {
+
+      return false; // window.orientation not available
+
+  }
+
+}
+
+window.addEventListener("orientationchange", function() {
+
+  // if orientation is landscape...
+  if( getOrientation() === 'landscape' ) {
+
+      // ...do your thing
+
+ }
+
+}, false);
