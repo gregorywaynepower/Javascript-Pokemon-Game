@@ -109,7 +109,7 @@ body{
 /* BATTLE SCREEN ============================================================*/
 
 #battle-screen{
-  background: url(//i.imgur.com/UZKEjzG.png) no-repeat center center; 
+  background: url(http://i.imgur.com/UZKEjzG.png) no-repeat center center; 
   -webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
   -o-background-size: 100% 100%;
@@ -678,7 +678,7 @@ body{
       border: border-box;
       .player{
         position: absolute;
-        bottom: 12.5%;
+        bottom: 0.5%;
         left: 5%;
         img{
           height: 125px;
@@ -751,7 +751,7 @@ body{
       }
       .cpu{
         position: absolute;
-        bottom: 12.5%;
+        bottom: 0.5%;
         right: 5%;
         .player2{
           position: relative;
